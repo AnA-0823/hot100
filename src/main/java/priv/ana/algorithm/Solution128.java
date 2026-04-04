@@ -27,24 +27,20 @@ public class Solution128 {
 
     // n
     public int longestConsecutivePlus(int[] nums) {
-        HashSet<Integer> integers = new HashSet<>((int) (nums.length / 0.75 + 1));
+        HashSet<Integer> integers = new HashSet<>();
         for (int num : nums) {
             integers.add(num);
         }
         int longestLength = 0;
-        for (Integer num : integers) {
-            // 不是起点，跳过
+        for (int num : integers) {
             if (integers.contains(num - 1)) continue;
-
-            // 是起点，向后计算当前序列长度
-            int currentNum = num;
-            int currentLength = 1;
-            while (integers.contains(currentNum + 1)) {
-                currentNum++;
-                currentLength++;
+            int l = 1;
+            int current = num;
+            while (integers.contains(current + 1)) {
+                l++;
+                current++;
             }
-            // 取最大
-            longestLength = Math.max(longestLength, currentLength);
+            longestLength = Math.max(longestLength, l);
         }
         return longestLength;
     }

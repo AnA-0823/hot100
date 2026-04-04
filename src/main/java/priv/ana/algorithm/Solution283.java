@@ -23,9 +23,9 @@ public class Solution283 {
         int left = 0, right = 0;
         while (right < nums.length) {
             if (nums[right] != 0) {
-                int temp = nums[right];
-                nums[right] = nums[left];
-                nums[left] = temp;
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
                 left++;
             }
             right++;

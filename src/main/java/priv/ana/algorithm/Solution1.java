@@ -22,12 +22,12 @@ public class Solution1 {
     public int[] twoSumPlus(int[] nums, int target) {
         HashMap<Integer, Integer> integerIntegerHashMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (integerIntegerHashMap.containsKey(target - nums[i])) {
-                return new int[]{integerIntegerHashMap.get(target - nums[i]), i};
+            Integer index = integerIntegerHashMap.get(target - nums[i]);
+            if (index != null) {
+                return new int[]{index, i};
             }
             integerIntegerHashMap.put(nums[i], i);
         }
-        // 保证有一个有效答案，不会执行
         return null;
     }
 }

@@ -15,7 +15,7 @@ public class Solution49 {
             if (stringListHashMap.containsKey(key)) {
                 stringListHashMap.get(key).add(str);
             } else {
-                stringListHashMap.put(key, new ArrayList<>(List.of(str)));
+                stringListHashMap.put(key, List.of(str));
             }
         }
         return new ArrayList<>(stringListHashMap.values());
